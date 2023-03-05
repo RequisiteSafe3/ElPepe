@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteR: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 82140082}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
