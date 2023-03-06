@@ -27,7 +27,7 @@ public class movement : MonoBehaviour
     
     private BoxCollider2D boxCollider;
 
-    //Movimiento de la cámara
+    //Movimiento de la cámaraa
     public int E = 1;
 
     //Start
