@@ -16,14 +16,14 @@ public class movement : MonoBehaviour
     unity inspector, remember that private variables are the first step to keep
     our code as clean as possible.*/
     [Header("Movement variables")]
-    [SerializeField] private float runSpeed;
-    [SerializeField] private float multiplierValue;
+    [SerializeField] private float runSpeed = 2;
+    [SerializeField] private float multiplierValue = 1.5f;
     private float runMultiplier;
 
     [Header("Jump variables")]
-    [SerializeField] private int maxJumps;     
-    [SerializeField] private float jumpForce;
-    [SerializeField] private int jumpsLeft;
+    [SerializeField] private int maxJumps = 1;     
+    [SerializeField] private float jumpForce = 3;
+    [SerializeField] private int jumpsLeft = 1;
 
     [Header("Dash")]
     [SerializeField] private float dashJump;

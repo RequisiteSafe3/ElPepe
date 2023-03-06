@@ -244,14 +244,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526631ba2aa131e48a93dec126c90c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteR: {fileID: 0}
+  spriteR: {fileID: 82140083}
   animator: {fileID: 82140082}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
-  runSpeed: 0
-  multiplierValue: 0
-  maxJumps: 0
+    m_Bits: 64
+  runSpeed: 2
+  multiplierValue: 1.5
+  maxJumps: 1
   jumpForce: 0
   jumpsLeft: 0
   dashJump: 0
@@ -292,7 +292,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00605312, y: -0.08171749}
+  m_Offset: {x: -0.0010509305, y: -0.088422775}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -303,8 +303,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.111968726, y: 0.30688}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.059445836, y: 0.23525357}
+  m_EdgeRadius: 0.02
 --- !u!50 &82140087
 Rigidbody2D:
   serializedVersion: 4
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 1668998997}
   - component: {fileID: 1668998999}
   - component: {fileID: 1668998998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _baseTilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}
