@@ -28,7 +28,7 @@ public class movement : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     //Movimiento de la cámaraa
-    public int E = 1;
+    public Cámara camara;
 
     //Start
     private void Start() {
@@ -36,6 +36,7 @@ public class movement : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         jumpsLeft = maxJumps;
         jumpForce = 3;
+        camara = FindObjectOfType<Cámara>();
     }
 
     private void Update() {
@@ -92,21 +93,23 @@ public class movement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("E1"))
+        if (collision.CompareTag("E1"))
         {
-            E = 1;
+            camara.E1();
+            Debug.Log("pene");
         }
-        else if (collision.gameObject.CompareTag("E2"))
+        else if (collision.CompareTag("E2"))
         {
-            E = 2;
+            camara.E2();
+            Debug.Log("vagina");
         }
-        else if (collision.gameObject.CompareTag("E3"))
+        else if (collision.CompareTag("E3"))
         {
-            E = 3;
+            camara.E3();
         }
-        else if (collision.gameObject.CompareTag("E4"))
+        else if (collision.CompareTag("E4"))
         {
-            E = 4;
+            camara.E4();
         }
     }
 }
