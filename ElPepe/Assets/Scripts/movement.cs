@@ -108,10 +108,6 @@ public class movement : MonoBehaviour
             animator.SetBool("idle", false); /* Animator */
             rb2D.velocity = new Vector2(movementInput * runSpeed * runMultiplier, rb2D.velocity.y);
 
-            if (Input.GetKey(KeyCode.LeftShift) && canDash) { // Dash.
-                StartCoroutine(Dash());
-            }
-
             if (rb2D.velocity.x < -0.1) { // Flip sprite manager.
                 spriteR.flipX = true;
             }
