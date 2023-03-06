@@ -27,6 +27,9 @@ public class movement : MonoBehaviour
     
     private BoxCollider2D boxCollider;
 
+    //Movimiento de la cámara
+    public int E = 1;
+
     //Start
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
@@ -85,6 +88,25 @@ public class movement : MonoBehaviour
                 animator.SetBool("run", false); /* Animator */
                 animator.SetBool("idle", true); /* Animator */
             }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("E1"))
+        {
+            E = 1;
+        }
+        else if (collision.gameObject.CompareTag("E2"))
+        {
+            E = 2;
+        }
+        else if (collision.gameObject.CompareTag("E3"))
+        {
+            E = 3;
+        }
+        else if (collision.gameObject.CompareTag("E4"))
+        {
+            E = 4;
         }
     }
 }
