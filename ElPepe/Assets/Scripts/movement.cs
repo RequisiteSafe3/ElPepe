@@ -42,6 +42,7 @@ public class movement : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         jumpsLeft = maxJumps;
+        jumpForce = 3;
     }
 
     private void Update() {
