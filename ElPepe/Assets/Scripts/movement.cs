@@ -49,6 +49,14 @@ public class movement : MonoBehaviour
         if(groundChecker.isGrounded !& Input.GetKeyDown(KeyCode.Space)) {
             jumpsLeft = maxJumps;
         }
+        if (groundChecker.isGrounded)
+        {
+            Debug.Log("tocando");
+        }
+        else
+        {
+            Debug.Log("No tocando");
+        }
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0) {
             jumpsLeft = jumpsLeft - 1;
             rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -96,12 +104,10 @@ public class movement : MonoBehaviour
         if (collision.CompareTag("E1"))
         {
             camara.E1();
-            Debug.Log("pene");
         }
         else if (collision.CompareTag("E2"))
         {
             camara.E2();
-            Debug.Log("vagina");
         }
         else if (collision.CompareTag("E3"))
         {
