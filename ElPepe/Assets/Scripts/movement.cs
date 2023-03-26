@@ -16,13 +16,13 @@ public class movement : MonoBehaviour
     unity inspector, remember that private variables are the first step to keep
     our code as clean as possible.*/
     [Header("Movement variables")]
-    [SerializeField] private float runSpeed = 2;
+    [SerializeField] private float runSpeed = 1.75f;
     [SerializeField] private float multiplierValue = 1.5f;
     private float runMultiplier;
 
     [Header("Jump variables")]
     [SerializeField] private int maxJumps = 1;     
-    [SerializeField] private float jumpForce = 3;
+    [SerializeField] private float jumpForce = 6;
     [SerializeField] private int jumpsLeft = 1;
     
     private BoxCollider2D boxCollider;
@@ -35,7 +35,7 @@ public class movement : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         jumpsLeft = maxJumps;
-        jumpForce = 3;
+        jumpForce = 3.5f;
         camara = FindObjectOfType<Cámara>();
     }
 
@@ -48,14 +48,6 @@ public class movement : MonoBehaviour
     void jumpMovement() {
         if(groundChecker.isGrounded !& Input.GetKeyDown(KeyCode.Space)) {
             jumpsLeft = maxJumps;
-        }
-        if (groundChecker.isGrounded)
-        {
-            Debug.Log("tocando");
-        }
-        else
-        {
-            Debug.Log("No tocando");
         }
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0) {
             jumpsLeft = jumpsLeft - 1;
