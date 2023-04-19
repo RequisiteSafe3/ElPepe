@@ -109,5 +109,8 @@ public class movement : MonoBehaviour
         {
             camara.E4();
         }
+        else if (collision.CompareTag("Dead")){
+            Destroy(this.gameObject);
+        }
     }
 }

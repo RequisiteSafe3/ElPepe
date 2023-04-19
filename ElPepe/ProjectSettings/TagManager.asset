@@ -11,6 +11,7 @@ TagManager:
   - E4
   - euno
   - Mover
+  - Dead
   layers:
   - Default
   - TransparentFX
