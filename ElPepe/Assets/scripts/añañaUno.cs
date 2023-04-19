@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class añaña : MonoBehaviour
+public class añañaUno : MonoBehaviour
 {
     Rigidbody2D rb2D;
     public SpriteRenderer spriteR;

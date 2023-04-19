@@ -10,6 +10,7 @@ TagManager:
   - E3
   - E4
   - euno
+  - Mover
   layers:
   - Default
   - TransparentFX
