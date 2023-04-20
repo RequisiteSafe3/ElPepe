@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,22 +107,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pinchos_0
+      name: pinchos_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 112
-        width: 9
-        height: 10
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7294738ec63b394c9a0ac5d5016dfa0
-      internalID: -1215458620
+      spriteID: 920e047f111c0344a82ecf03453aa326
+      internalID: 628994930
       vertices: []
       indices: 
       edges: []
@@ -139,6 +139,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       pinchos_0: -1215458620
+      pinchos_1: 624345737
+      pinchos_2: 1252369651
+      pinchos_3: 682645668
+      pinchos_4: 628994930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
