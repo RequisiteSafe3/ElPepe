@@ -39,5 +39,10 @@ public class añañaUno : MonoBehaviour
                 x = true;
             }
         }
+        else if (collision.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("pene");
+        }
     }
 }

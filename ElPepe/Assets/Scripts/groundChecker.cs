@@ -11,12 +11,10 @@ public class groundChecker : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            Debug.Log("Tocando");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         isGrounded = false;
-        Debug.Log("No tocando");
     }
 }
