@@ -27,6 +27,7 @@ public class movement : MonoBehaviour
     [SerializeField] private int jumpsLeft = 1;
     
     private BoxCollider2D boxCollider;
+    public int E = 1;
 
     //Movimiento de la cámaraa
     public Cámara camara;
@@ -97,21 +98,40 @@ public class movement : MonoBehaviour
         if (collision.CompareTag("E1"))
         {
             camara.E1();
+            E = 1;
         }
         else if (collision.CompareTag("E2"))
         {
             camara.E2();
+            E = 2;
         }
         else if (collision.CompareTag("E3"))
         {
             camara.E3();
+            E = 3;
         }
         else if (collision.CompareTag("E4"))
         {
             camara.E4();
+            E = 4;
         }
         else if (collision.CompareTag("Dead")){
-            Destroy(this.gameObject);
+            if (E == 1)
+            {
+                transform.position = new Vector3(-3.388f, 1.84f, 0);
+            }
+            else if (E == 2)
+            {
+                transform.position = new Vector3(4.609963f, -1.516658f, 0);
+            }
+            else if (E == 3)
+            {
+                transform.position = new Vector3(13.23f, -1.499f, 0);
+            }
+            else if (E == 4)
+            {
+                transform.position = new Vector3(22.06f, -1.499f, 0);
+            }
         }
         else if (collision.CompareTag("Finish"))
         {
