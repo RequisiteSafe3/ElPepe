@@ -12,6 +12,10 @@ TagManager:
   - euno
   - Mover
   - Dead
+  - E5
+  - E6
+  - E7
+  - E8
   layers:
   - Default
   - TransparentFX

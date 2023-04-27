@@ -115,7 +115,14 @@ public class movement : MonoBehaviour
             camara.E4();
             E = 4;
         }
-        else if (collision.CompareTag("Dead")){
+        else if (collision.CompareTag("E5"))
+        {
+            camara.E5();
+            E = 5;
+        }
+
+        else if (collision.CompareTag("Dead"))
+        {
             if (E == 1)
             {
                 transform.position = new Vector3(-3.388f, 1.84f, 0);
@@ -131,6 +138,10 @@ public class movement : MonoBehaviour
             else if (E == 4)
             {
                 transform.position = new Vector3(22.06f, -1.499f, 0);
+            }
+            else if (E == 5)
+            {
+                transform.position = new Vector3(-3.404f, -3.879f, 0);
             }
         }
         else if (collision.CompareTag("Finish"))
