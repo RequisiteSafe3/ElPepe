@@ -19,6 +19,8 @@ public class movement : MonoBehaviour
     [Header("Movement variables")]
     [SerializeField] private float runSpeed = 1.75f;
     [SerializeField] private float multiplierValue = 1.5f;
+    [SerializeField] private float coyoteTime = 2f;
+    private float coyoteTimeCounter;
     private float runMultiplier;
 
     [Header("Jump variables")]
@@ -29,32 +31,43 @@ public class movement : MonoBehaviour
     private BoxCollider2D boxCollider;
     public int E = 1;
 
-    //Movimiento de la c·maraa
-    public C·mara camara;
+    //Movimiento de la c√°maraa
+    public C√°mara camara;
 
-    //Start
+    //Starts
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         jumpsLeft = maxJumps;
         jumpForce = 3.5f;
-        camara = FindObjectOfType<C·mara>();
+        camara = FindObjectOfType<C√°mara>();
     }
 
     private void Update() {
         horizontalMovement();
         jumpMovement();
+
+        if (groundChecker.isGrounded) {
+            coyoteTimeCounter = coyoteTime;
         }
-    
+        else {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+    }
 
     void jumpMovement() {
-        if(groundChecker.isGrounded !& Input.GetKeyDown(KeyCode.Space)) {
+        if(coyoteTimeCounter > 0f !& Input.GetKeyDown(KeyCode.Space)) {
             jumpsLeft = maxJumps;
+            coyoteTimeCounter = 0f;
         }
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0) {
             jumpsLeft = jumpsLeft - 1;
-            rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
         }    
+        if (Input.GetKeyUp(KeyCode.Space) && rb2D.velocity.y > 0f) {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, rb2D.velocity.y * 0.4f);
+        }
     }
 
     void horizontalMovement() {
