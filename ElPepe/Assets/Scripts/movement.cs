@@ -118,6 +118,7 @@ public class movement : MonoBehaviour
         else if (collision.CompareTag("E5"))
         {
             camara.E5();
+            transform.position = new Vector3(-3.855f, -3.897f, 0);
             E = 5;
         }
 
