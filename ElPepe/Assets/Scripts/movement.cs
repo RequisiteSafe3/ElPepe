@@ -24,6 +24,7 @@ public class movement : MonoBehaviour
     [SerializeField] private float runSpeed = 1.75f;
     [SerializeField] private float multiplierValue = 1.5f;
     [SerializeField] private float coyoteTime = 2f;
+    [SerializeField] private float jumpBreak = 0.4f;
     private float coyoteTimeCounter;
     private float runMultiplier;
 
@@ -131,7 +132,7 @@ public class movement : MonoBehaviour
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
         }    
         if (Input.GetKeyUp(KeyCode.Space) && rb2D.velocity.y > 0f) {
-            rb2D.velocity = new Vector2(rb2D.velocity.x, rb2D.velocity.y * 0.4f);
+            rb2D.velocity = new Vector2(rb2D.velocity.x, rb2D.velocity.y * jumpBreak);
         }
     }
 
