@@ -38,4 +38,8 @@ public class Cámara : MonoBehaviour
     {
         transform.position = new Vector3(25.6f, -4.84f, -10);
     }
+    public void fin()
+    {
+        transform.position = new Vector3(-0.14f, -10.03f, -10);
+    }
 }

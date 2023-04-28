@@ -119,6 +119,11 @@ public class movement : MonoBehaviour
             E = 8;
             transform.position = new Vector3(21.876f, -3.903f, 0);
         }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            camara.fin();
+            transform.position = new Vector3(-3.825f, -11.423f, 0);
+        }
     }
 
     void jumpMovement() {
@@ -219,6 +224,11 @@ public class movement : MonoBehaviour
         {
             camara.E8();
             E = 8;
+        }
+        else if (collision.CompareTag("fin"))
+        {
+            camara.fin();
+            transform.position = new Vector3(-3.825f, -11.423f, 0);
         }
 
         else if (collision.CompareTag("Dead") && Intangible == false)
