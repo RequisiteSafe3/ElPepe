@@ -136,7 +136,13 @@ public class movement : MonoBehaviour
             jumpsLeft = jumpsLeft - 1;
             //rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
-        }    
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpsLeft > 0)
+        {
+            jumpsLeft = jumpsLeft - 1;
+            //rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
+        }
         if (Input.GetKeyUp(KeyCode.Space) && rb2D.velocity.y > 0f) {
             rb2D.velocity = new Vector2(rb2D.velocity.x, rb2D.velocity.y * jumpBreak);
         }
