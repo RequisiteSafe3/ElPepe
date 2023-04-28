@@ -14,6 +14,7 @@ public class movement : MonoBehaviour
 
     //Adim variables
     public bool Intangible = false;
+    public bool Mascara = false;
 
 
     //Private variables
@@ -266,10 +267,59 @@ public class movement : MonoBehaviour
                 transform.position = new Vector3(21.876f, -3.903f, 0);
             }
         }
+        else if (collision.CompareTag("masc"))
+        {
+            StartCoroutine("Mascara_");
+        }
+        else if (collision.CompareTag("humo") && Intangible == false && Mascara == false)
+        {
+            if (E == 1)
+            {
+                transform.position = new Vector3(-3.388f, 1.84f, 0);
+            }
+            else if (E == 2)
+            {
+                transform.position = new Vector3(4.609963f, -1.516658f, 0);
+            }
+            else if (E == 3)
+            {
+                transform.position = new Vector3(13.23f, -1.499f, 0);
+            }
+            else if (E == 4)
+            {
+                transform.position = new Vector3(22.06f, -1.499f, 0);
+            }
+            else if (E == 5)
+            {
+                transform.position = new Vector3(-3.404f, -3.879f, 0);
+            }
+            else if (E == 6)
+            {
+                transform.position = new Vector3(4.877f, -6.467f, 0);
+            }
+            else if (E == 7)
+            {
+                transform.position = new Vector3(13.326f, -6.478f, 0);
+            }
+            else if (E == 8)
+            {
+                transform.position = new Vector3(21.876f, -3.903f, 0);
+            }
+        }
         else if (collision.CompareTag("Finish"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+    }
+    IEnumerator Mascara_()
+    {
+        Mascara = true;
+        yield return new WaitForSecondsRealtime(10);
+        Masca();
+    }
+    private void Masca()
+    {
+        Mascara = false;
     }
 
 }

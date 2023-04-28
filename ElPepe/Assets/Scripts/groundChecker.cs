@@ -6,6 +6,13 @@ public class groundChecker : MonoBehaviour
 {
     public static bool isGrounded;
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isGrounded = true;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     { // CheckGround.
         if (collision.gameObject.CompareTag("Ground"))
