@@ -12,6 +12,7 @@ public class movement : MonoBehaviour
     public Animator animator;
     public LayerMask groundLayer;
     public GameObject Arbolito;
+    public GameObject ible;
 
     //Adim variables
     public bool Intangible = false;
@@ -333,11 +334,13 @@ public class movement : MonoBehaviour
     IEnumerator Mascara_()
     {
         Mascara = true;
+        ible.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(10);
         Masca();
     }
     private void Masca()
     {
+        ible.gameObject.SetActive(false);
         Mascara = false;
     }
 
