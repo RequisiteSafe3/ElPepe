@@ -131,7 +131,7 @@ public class movement : MonoBehaviour
         //plantar
         if (Input.GetKeyDown(KeyCode.E) && plantar == true)
         {
-            Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y, -0.1f), Quaternion.identity);
+            Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y - 0.13f, -0.1f), Quaternion.identity);
         }
     }
 
