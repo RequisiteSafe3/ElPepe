@@ -21,6 +21,7 @@ TagManager:
   - fin
   - humo
   - masc
+  - arbol
   layers:
   - Default
   - TransparentFX

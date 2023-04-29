@@ -11,6 +11,7 @@ public class movement : MonoBehaviour
     public SpriteRenderer spriteR;
     public Animator animator;
     public LayerMask groundLayer;
+    public GameObject Arbolito;
 
     //Adim variables
     public bool Intangible = false;
@@ -28,6 +29,7 @@ public class movement : MonoBehaviour
     [SerializeField] private float jumpBreak = 0.4f;
     private float coyoteTimeCounter;
     private float runMultiplier;
+    private bool plantar = false;
 
     [Header("Jump variables")]
     [SerializeField] private int maxJumps = 1;     
@@ -125,6 +127,12 @@ public class movement : MonoBehaviour
             camara.fin();
             transform.position = new Vector3(-3.825f, -11.423f, 0);
         }
+
+        //plantar
+        if (Input.GetKeyDown(KeyCode.E) && plantar == true)
+        {
+            Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y, -0.1f), Quaternion.identity);
+        }
     }
 
     void jumpMovement() {
@@ -133,12 +141,6 @@ public class movement : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0) {
-            jumpsLeft = jumpsLeft - 1;
-            //rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpsLeft > 0)
-        {
             jumpsLeft = jumpsLeft - 1;
             //rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
@@ -315,6 +317,17 @@ public class movement : MonoBehaviour
         else if (collision.CompareTag("Finish"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (collision.CompareTag("arbol"))
+        {
+            plantar = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("arbol"))
+        {
+            plantar = false;
         }
     }
     IEnumerator Mascara_()
