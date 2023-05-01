@@ -27,15 +27,15 @@ public class movement : MonoBehaviour
     [SerializeField] private float runSpeed = 1.75f;
     [SerializeField] private float multiplierValue = 1.5f;
     [SerializeField] private float coyoteTime = 2f;
-    [SerializeField] private float jumpBreak = 0.4f;
     private float coyoteTimeCounter;
     private float runMultiplier;
     private bool plantar = false;
 
     [Header("Jump variables")]
     [SerializeField] private int maxJumps = 1;     
-    [SerializeField] private float jumpForce = 6;
+    [SerializeField] private float jumpForce = 13;
     [SerializeField] private int jumpsLeft = 1;
+    [SerializeField] private float jumpBreak = 0.4f;
     
     private BoxCollider2D boxCollider;
     public int E = 1;
