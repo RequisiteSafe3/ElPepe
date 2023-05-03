@@ -55,7 +55,6 @@ public class movement : MonoBehaviour
     private void Update() {
         horizontalMovement();
         jumpMovement();
-
         if (groundChecker.isGrounded) {
             coyoteTimeCounter = coyoteTime;
         }
@@ -137,16 +136,19 @@ public class movement : MonoBehaviour
     }
 
     void jumpMovement() {
-        if(coyoteTimeCounter > 0f !& Input.GetKeyDown(KeyCode.Space)) {
+        if (coyoteTimeCounter > 0f! & (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
+        {
             jumpsLeft = maxJumps;
             coyoteTimeCounter = 0f;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0) {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && jumpsLeft > 0)
+        {
             jumpsLeft = jumpsLeft - 1;
             //rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
         }
-        if (Input.GetKeyUp(KeyCode.Space) && rb2D.velocity.y > 0f) {
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.UpArrow)) && rb2D.velocity.y > 0f)
+        {
             rb2D.velocity = new Vector2(rb2D.velocity.x, rb2D.velocity.y * jumpBreak);
         }
     }
