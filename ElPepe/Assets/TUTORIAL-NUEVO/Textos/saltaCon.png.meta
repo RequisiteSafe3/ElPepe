@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef179292b7e0277488178c9093e6145f
+guid: cc9e82adc100e4a43a2ec96431965013
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,13 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: moverse_0
+      name: saltaCon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 40
+        width: 66
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ac2f4bf7c699e48a056aeb32e7641a
-      internalID: -607558938
+      spriteID: 76635f81c901a3d4598ed94a28ab6ac9
+      internalID: -383426412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: moverse_1
+      name: saltaCon_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 66
         y: 0
-        width: 38
-        height: 40
+        width: 66
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16e0aa2d45608ae4aa74cdf042717438
-      internalID: -1654428377
+      spriteID: 3f1fac6f09a9a8b4f8b5e38993fabcab
+      internalID: -473610051
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      moverse_0: -607558938
-      moverse_1: -1654428377
+      saltaCon_0: -383426412
+      saltaCon_1: -473610051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
