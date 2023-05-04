@@ -22,7 +22,6 @@ public class echoMovement : MonoBehaviour
     [SerializeField] private float coyoteTime = 2f;
     private float coyoteTimeCounter;
     private float runMultiplier;
-    private bool plantar = false;
 
     [Header("Jump variables")]
     [SerializeField] private int maxJumps = 1;     
