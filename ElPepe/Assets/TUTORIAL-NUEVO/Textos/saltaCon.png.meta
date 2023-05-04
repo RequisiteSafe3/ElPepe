@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,7 +112,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 66
+        width: 59
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -121,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76635f81c901a3d4598ed94a28ab6ac9
-      internalID: -383426412
+      spriteID: 85f496ba6718842479fd0341c8d00563
+      internalID: 1829525153
       vertices: []
       indices: 
       edges: []
@@ -131,9 +131,9 @@ TextureImporter:
       name: saltaCon_1
       rect:
         serializedVersion: 2
-        x: 66
+        x: 59
         y: 0
-        width: 66
+        width: 59
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f1fac6f09a9a8b4f8b5e38993fabcab
-      internalID: -473610051
+      spriteID: d4fe9173b6200864d90da9423ccf13fa
+      internalID: 1721351320
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      saltaCon_0: -383426412
-      saltaCon_1: -473610051
+      saltaCon_0: 1829525153
+      saltaCon_1: 1721351320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
