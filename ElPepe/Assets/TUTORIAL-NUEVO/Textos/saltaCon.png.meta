@@ -112,7 +112,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 59
+        width: 53
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -121,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f496ba6718842479fd0341c8d00563
-      internalID: 1829525153
+      spriteID: 32dc10359792e0b44be916928273b288
+      internalID: -910142142
       vertices: []
       indices: 
       edges: []
@@ -131,9 +131,9 @@ TextureImporter:
       name: saltaCon_1
       rect:
         serializedVersion: 2
-        x: 59
+        x: 53
         y: 0
-        width: 59
+        width: 53
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4fe9173b6200864d90da9423ccf13fa
-      internalID: 1721351320
+      spriteID: a8013d43b5f42a244b701461bf108da1
+      internalID: -851309690
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      saltaCon_0: 1829525153
-      saltaCon_1: 1721351320
+      saltaCon_0: -910142142
+      saltaCon_1: -851309690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
