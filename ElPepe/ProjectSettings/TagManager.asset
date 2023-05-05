@@ -22,6 +22,8 @@ TagManager:
   - humo
   - masc
   - arbol
+  - Charco
+  - "A\xF1a"
   layers:
   - Default
   - TransparentFX

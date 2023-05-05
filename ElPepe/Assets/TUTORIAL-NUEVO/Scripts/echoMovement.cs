@@ -11,6 +11,10 @@ public class echoMovement : MonoBehaviour
     public SpriteRenderer spriteR;
     public Animator animator;
     public LayerMask groundLayer;
+    public bool Mascara = false;
+    public GameObject m;
+    public GameObject ible;
+    public GameObject testo;
 
     //Private variables
     /*SerializeField is used to keep private variables visible in the
@@ -33,14 +37,12 @@ public class echoMovement : MonoBehaviour
     public int E = 1;
 
     //Movimiento de la cámaraa
-    public Cámara camara;
 
     //Starts
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         jumpsLeft = maxJumps;
-        camara = FindObjectOfType<Cámara>();
     }
 
     private void Update() {
@@ -113,8 +115,37 @@ public class echoMovement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        else if (collision.CompareTag("Charco"))
+        {
+            transform.position = new Vector3(65.44f, 1.61f, 0);
+        }
+        else if (collision.CompareTag("Aña"))
+        {
+            transform.position = new Vector3(105.53f, 3.65f, 0);
+        }
+        else if (collision.CompareTag("humo") && Mascara == false) {
+            transform.position = new Vector3(130.58f, -0.36f, 0);
+            Instantiate(m, new Vector3(138.01f, -0.23f, -0.1f), Quaternion.identity);
+            testo.gameObject.SetActive(true);
+        }
+        else if (collision.CompareTag("masc"))
+        {
+            StartCoroutine("Mascara_");
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+    }
+    IEnumerator Mascara_()
+    {
+        Mascara = true;
+        ible.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(10);
+        Masca();
+    }
+    private void Masca()
+    {
+        ible.gameObject.SetActive(false);
+        Mascara = false;
     }
 }

@@ -6,6 +6,7 @@ public class añaña : MonoBehaviour
 {
     Rigidbody2D rb2D;
     public SpriteRenderer spriteR;
+    public float speed = 1.5f;
     public static bool x = true;
     void Start()
     {
@@ -17,12 +18,12 @@ public class añaña : MonoBehaviour
     {
         if (x == true)
         {
-            rb2D.velocity = new Vector2(-1.5f, 0); //derecha
+            rb2D.velocity = new Vector2(-speed, 0); //derecha
             spriteR.flipX = false;
         }
         else
         {
-            rb2D.velocity = new Vector2(1.5f, 0); //derecha
+            rb2D.velocity = new Vector2(speed, 0); //derecha
             spriteR.flipX = true;
         }
     }

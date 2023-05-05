@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5393892056889623453}
   - component: {fileID: 8750456988133546690}
   - component: {fileID: 8098246804448120659}
-  - component: {fileID: 1507338392214897017}
+  - component: {fileID: -6780263285247617449}
   m_Layer: 0
-  m_Name: mascaraitem
+  m_Name: mascaraitem 1
   m_TagString: masc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 2454539831843550524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.68, y: 1.632, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 12, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8750456988133546690
 SpriteRenderer:
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09447104, y: 0.073436975}
   m_EdgeRadius: 0
---- !u!114 &1507338392214897017
+--- !u!114 &-6780263285247617449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
