@@ -61,6 +61,9 @@ TagManager:
   - name: Background
     uniqueID: 4211414595
     locked: 0
+  - name: Trasero1
+    uniqueID: 2429649927
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
