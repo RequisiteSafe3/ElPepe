@@ -13,6 +13,7 @@ public class movement : MonoBehaviour
     public LayerMask groundLayer;
     public GameObject Arbolito;
     public GameObject ible;
+    public GameObject time;
 
     //Adim variables
     public bool Intangible = false;
@@ -281,6 +282,7 @@ public class movement : MonoBehaviour
         else if (collision.CompareTag("masc"))
         {
             StartCoroutine("Mascara_");
+            StartCoroutine("ani_");
         }
         else if (collision.CompareTag("humo") && Intangible == false && Mascara == false)
         {
@@ -339,6 +341,12 @@ public class movement : MonoBehaviour
         ible.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(10);
         Masca();
+    }
+    IEnumerator ani_()
+    {
+        time.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(10.75f);
+        time.gameObject.SetActive(false);
     }
     private void Masca()
     {

@@ -15,6 +15,7 @@ public class echoMovement : MonoBehaviour
     public GameObject m;
     public GameObject ible;
     public GameObject testo;
+    public GameObject time;
 
     //Private variables
     /*SerializeField is used to keep private variables visible in the
@@ -131,6 +132,7 @@ public class echoMovement : MonoBehaviour
         else if (collision.CompareTag("masc"))
         {
             StartCoroutine("Mascara_");
+            StartCoroutine("ani_");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -142,6 +144,12 @@ public class echoMovement : MonoBehaviour
         ible.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(10);
         Masca();
+    }
+    IEnumerator ani_()
+    {
+        time.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(10.75f);
+        time.gameObject.SetActive(false);
     }
     private void Masca()
     {
