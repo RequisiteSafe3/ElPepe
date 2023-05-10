@@ -24,6 +24,7 @@ TagManager:
   - arbol
   - Charco
   - "A\xF1a"
+  - Tapa
   layers:
   - Default
   - TransparentFX
