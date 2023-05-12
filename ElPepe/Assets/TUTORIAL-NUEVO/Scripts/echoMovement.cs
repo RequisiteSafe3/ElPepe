@@ -16,6 +16,7 @@ public class echoMovement : MonoBehaviour
     public GameObject ible;
     public GameObject testo;
     public GameObject time;
+    public GameObject Arbolito;
 
     //Private variables
     /*SerializeField is used to keep private variables visible in the
@@ -36,6 +37,7 @@ public class echoMovement : MonoBehaviour
     
     private BoxCollider2D boxCollider;
     public int E = 1;
+    private bool plantar = false;
 
     //Movimiento de la cámaraa
 
@@ -50,11 +52,16 @@ public class echoMovement : MonoBehaviour
         horizontalMovement();
         jumpMovement();
 
-        if (groundCheckerEcho.isGrounded) {
+        if (groundCheckerEcho.isGrounded || rb2D.velocity.y == 0) {
             coyoteTimeCounter = coyoteTime;
         }
         else {
             coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (plantar == true)
+        {
+            Plantar();
         }
     }
 
@@ -134,9 +141,17 @@ public class echoMovement : MonoBehaviour
             StartCoroutine("Mascara_");
             StartCoroutine("ani_");
         }
+        else if (collision.CompareTag("arbol"))
+        {
+            plantar = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("arbol"))
+        {
+            plantar = false;
+        }
     }
     IEnumerator Mascara_()
     {
@@ -155,5 +170,12 @@ public class echoMovement : MonoBehaviour
     {
         ible.gameObject.SetActive(false);
         Mascara = false;
+    }
+    private void Plantar()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y - 0.9695f, -0.1f), Quaternion.identity);
+        }
     }
 }

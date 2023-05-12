@@ -56,7 +56,7 @@ public class movement : MonoBehaviour
     private void Update() {
         horizontalMovement();
         jumpMovement();
-        if (groundChecker.isGrounded) {
+        if (groundChecker.isGrounded || rb2D.velocity.y == 0) {
             coyoteTimeCounter = coyoteTime;
         }
         else {
