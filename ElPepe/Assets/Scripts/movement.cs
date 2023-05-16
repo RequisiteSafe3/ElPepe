@@ -14,6 +14,8 @@ public class movement : MonoBehaviour
     public GameObject Arbolito;
     public GameObject ible;
     public GameObject time;
+    public GameObject Activar_1;
+    public GameObject Activar_2;
 
     //Adim variables
     public bool Intangible = false;
@@ -351,6 +353,8 @@ public class movement : MonoBehaviour
     private void Masca()
     {
         ible.gameObject.SetActive(false);
+        Activar_1.gameObject.SetActive(true);
+        Activar_2.gameObject.SetActive(true);
         Mascara = false;
     }
 

@@ -8,7 +8,7 @@ public class ItemMasc : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
