@@ -157,7 +157,7 @@ public class movement : MonoBehaviour
     }
 
     void horizontalMovement() {
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)) { // Not moving when pressing both keys.
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)) { //Dont move when is pressing both keyes
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             animator.SetBool("idle", true);
             animator.SetBool("run", false);
