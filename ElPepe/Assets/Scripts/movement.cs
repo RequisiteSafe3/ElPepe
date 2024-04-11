@@ -76,61 +76,6 @@ public class movement : MonoBehaviour
         {
             Intangible = false;
         }
-        //Niveles
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            camara.E1();
-            E = 1;
-            transform.position = new Vector3(-3.388f, 1.84f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            camara.E2();
-            E = 2;
-            transform.position = new Vector3(4.609963f, -1.516658f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            camara.E3();
-            E = 3;
-            transform.position = new Vector3(13.23f, -1.499f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            camara.E4();
-            E = 4;
-            transform.position = new Vector3(22.06f, -1.499f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            camara.E5();
-            E = 5;
-            transform.position = new Vector3(-3.404f, -3.879f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            camara.E6();
-            E = 6;
-            transform.position = new Vector3(4.877f, -6.467f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            camara.E7();
-            E = 7;
-            transform.position = new Vector3(13.326f, -6.478f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            camara.E8();
-            E = 8;
-            transform.position = new Vector3(21.876f, -3.903f, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            camara.fin();
-            transform.position = new Vector3(-3.825f, -11.423f, 0);
-        }
-
         //plantar
         if (Input.GetKeyDown(KeyCode.E) && plantar == true)
         {
@@ -194,92 +139,9 @@ public class movement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("E1"))
+        if (collision.CompareTag("Dead") && Intangible == false)
         {
-            camara.E1();
-            E = 1;
-        }
-        else if (collision.CompareTag("E2"))
-        {
-            camara.E2();
-            E = 2;
-        }
-        else if (collision.CompareTag("E3"))
-        {
-            camara.E3();
-            E = 3;
-        }
-        else if (collision.CompareTag("E4"))
-        {
-            camara.E4();
-            E = 4;
-        }
-        else if (collision.CompareTag("E5-"))
-        {
-            camara.E5();
-            transform.position = new Vector3(-3.855f, -3.897f, 0);
-            E = 5;
-        }
-        else if (collision.CompareTag("E5"))
-        {
-            camara.E5();
-            E = 5;
-        }
-        else if (collision.CompareTag("E6"))
-        {
-            camara.E6();
-            E = 6;
-        }
-        else if (collision.CompareTag("E7"))
-        {
-            camara.E7();
-            E = 7;
-        }
-        else if (collision.CompareTag("E8"))
-        {
-            camara.E8();
-            E = 8;
-        }
-        else if (collision.CompareTag("fin"))
-        {
-            camara.fin();
-            transform.position = new Vector3(-3.825f, -11.423f, 0);
-        }
-
-        else if (collision.CompareTag("Dead") && Intangible == false)
-        {
-            if (E == 1)
-            {
-                transform.position = new Vector3(-3.388f, 1.84f, 0);
-            }
-            else if (E == 2)
-            {
-                transform.position = new Vector3(4.609963f, -1.516658f, 0);
-            }
-            else if (E == 3)
-            {
-                transform.position = new Vector3(13.23f, -1.499f, 0);
-            }
-            else if (E == 4)
-            {
-                transform.position = new Vector3(22.06f, -1.499f, 0);
-            }
-            else if (E == 5)
-            {
-                transform.position = new Vector3(-3.404f, -3.879f, 0);
-            }
-            else if (E == 6)
-            {
-                transform.position = new Vector3(4.877f, -6.467f, 0);
-            }
-            else if (E == 7)
-            {
-                transform.position = new Vector3(13.326f, -6.478f, 0);
-            }
-            else if (E == 8)
-            {
-                transform.position = new Vector3(21.876f, -3.903f, 0);
-            }
+            Debug.Log("sE MUERES");
         }
         else if (collision.CompareTag("masc"))
         {
@@ -288,38 +150,7 @@ public class movement : MonoBehaviour
         }
         else if (collision.CompareTag("humo") && Intangible == false && Mascara == false)
         {
-            if (E == 1)
-            {
-                transform.position = new Vector3(-3.388f, 1.84f, 0);
-            }
-            else if (E == 2)
-            {
-                transform.position = new Vector3(4.609963f, -1.516658f, 0);
-            }
-            else if (E == 3)
-            {
-                transform.position = new Vector3(13.23f, -1.499f, 0);
-            }
-            else if (E == 4)
-            {
-                transform.position = new Vector3(22.06f, -1.499f, 0);
-            }
-            else if (E == 5)
-            {
-                transform.position = new Vector3(-3.404f, -3.879f, 0);
-            }
-            else if (E == 6)
-            {
-                transform.position = new Vector3(4.877f, -6.467f, 0);
-            }
-            else if (E == 7)
-            {
-                transform.position = new Vector3(13.326f, -6.478f, 0);
-            }
-            else if (E == 8)
-            {
-                transform.position = new Vector3(21.876f, -3.903f, 0);
-            }
+            Debug.Log("sE MUERES");
         }
         else if (collision.CompareTag("Finish"))
         {
