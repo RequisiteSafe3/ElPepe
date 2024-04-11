@@ -41,7 +41,7 @@ MonoBehaviour:
   slideSpeed: -1
   slideAccel: 1
   coyoteTime: 0.1
-  jumpInputBufferTime: 0.05
+  jumpInputBufferTime: 0.15
   dashAmount: 0
   dashSpeed: 0
   dashSleepTime: 0
@@ -50,4 +50,4 @@ MonoBehaviour:
   dashEndSpeed: {x: 0, y: 0}
   dashEndRunLerp: 0
   dashRefillTime: 0
-  dashInputBufferTime: 0
+  dashInputBufferTime: 0.01
