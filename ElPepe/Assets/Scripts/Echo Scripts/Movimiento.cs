@@ -335,10 +335,18 @@ public class PlayerMovement : MonoBehaviour
     #region RUN METHODS
     private void Run(float lerpAmount)
 	{
-		//Calculate the direction we want to move in and our desired velocity
-		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
-		//We can reduce are control using Lerp() this smooths changes to are direction and speed
-		targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);
+        //Calculate the direction we want to move in and our desired velocity
+        float targetSpeed;
+        if (Input.GetKey(KeyCode.W))
+        {
+            targetSpeed = _moveInput.x * Data.runMaxSpeed * Data.WalkingMultiplier;
+        }
+        else
+        {
+            targetSpeed = _moveInput.x * Data.runAccelAmount;
+        }
+        //We can reduce are control using Lerp() this smooths changes to are direction and speed
+        targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);
 
 		#region Calculate AccelRate
 		float accelRate;

@@ -17,7 +17,6 @@ public class Echo : MonoBehaviour
     private bool plantar = false;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -53,8 +52,18 @@ public class Echo : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
             { // Running.
-                animator.SetBool("walk", true); /* Animator */
-                animator.SetBool("run", false); /* Animator */
+                if (Input.GetKey(KeyCode.W))
+                { // Running.
+                    animator.SetBool("idle", false);
+                    animator.SetBool("walk", true); /* Animator */
+                    animator.SetBool("run", false); /* Animator */
+                }
+                else
+                {
+                animator.SetBool("idle", false);
+                animator.SetBool("walk", false); /* Animator */
+                animator.SetBool("run", true); /* Animator */
+                }
             }
             else
             { // Idle animation in case of not moving.
