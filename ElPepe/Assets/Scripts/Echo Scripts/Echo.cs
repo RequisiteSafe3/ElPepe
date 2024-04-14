@@ -13,8 +13,11 @@ public class Echo : MonoBehaviour
     public GameObject ible;
     public GameObject time;
     public GameObject m;
+    public GameObject Checkpoint;
 
     private bool plantar = false;
+    private float Posicion_X;
+    private float Posicion_Y;
     void Start()
     {
     }
@@ -34,6 +37,18 @@ public class Echo : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && plantar == true)
         {
             Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y - 0.13f, -0.1f), Quaternion.identity);
+        }
+
+        //Checkpoint
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Posicion_X = transform.position.x;
+            Posicion_Y = transform.position.y;
+            Instantiate(Checkpoint, new Vector3(transform.position.x, transform.position.y - 0.13f, -0.1f), Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            transform.position = new Vector3(Posicion_X, Posicion_Y, transform.position.z);
         }
 
         //animaciones
