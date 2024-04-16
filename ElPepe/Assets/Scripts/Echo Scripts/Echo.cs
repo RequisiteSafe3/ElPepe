@@ -52,9 +52,11 @@ public class Echo : MonoBehaviour
         }
 
         //animaciones
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
-        {
-            
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))){
+            animator.SetBool("jump", true);
+        }
+        else {
+            animator.SetBool("jump", false);
         }
 
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
@@ -62,6 +64,7 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", true);
             animator.SetBool("run", false);
             animator.SetBool("walk", false);
+            animator.SetBool("jump", false);
         }
         else
         {
@@ -72,12 +75,14 @@ public class Echo : MonoBehaviour
                     animator.SetBool("idle", false);
                     animator.SetBool("walk", true); /* Animator */
                     animator.SetBool("run", false); /* Animator */
+                    animator.SetBool("jump", false);
                 }
                 else
                 {
                 animator.SetBool("idle", false);
                 animator.SetBool("walk", false); /* Animator */
                 animator.SetBool("run", true); /* Animator */
+                animator.SetBool("idle", false);
                 }
             }
             else
@@ -85,6 +90,7 @@ public class Echo : MonoBehaviour
                 animator.SetBool("walk", false); /* Animator */
                 animator.SetBool("run", false); /* Animator */
                 animator.SetBool("idle", true); /* Animator */
+                animator.SetBool("idle", false);
             }
         }
     }
