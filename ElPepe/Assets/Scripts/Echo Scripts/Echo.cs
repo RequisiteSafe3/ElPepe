@@ -53,11 +53,29 @@ public class Echo : MonoBehaviour
 
         //animaciones
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))){
+            animator.SetBool("idle", false);
             animator.SetBool("jump", true);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
+            animator.SetBool("idle", false);
+            animator.SetBool("run", true);
+            if (Input.GetKey(KeyCode.W)) {
+                animator.SetBool("run", false);
+                animator.SetBool("walk", true);
+            }
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
+            animator.SetBool("jump", false);
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
+            animator.SetBool("idle", true);
         }
         else {
             animator.SetBool("jump", false);
-        }
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
+            animator.SetBool("idle", true);
+        } /*
 
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
         { //Dont move when is pressing both keyes
@@ -73,26 +91,26 @@ public class Echo : MonoBehaviour
                 if (Input.GetKey(KeyCode.W))
                 { // Running.
                     animator.SetBool("idle", false);
-                    animator.SetBool("walk", true); /* Animator */
-                    animator.SetBool("run", false); /* Animator */
+                    animator.SetBool("walk", true); 
+                    animator.SetBool("run", false); 
                     animator.SetBool("jump", false);
                 }
                 else
                 {
                 animator.SetBool("idle", false);
-                animator.SetBool("walk", false); /* Animator */
-                animator.SetBool("run", true); /* Animator */
+                animator.SetBool("walk", false); 
+                animator.SetBool("run", true); 
                 animator.SetBool("idle", false);
                 }
             }
             else
             { // Idle animation in case of not moving.
-                animator.SetBool("walk", false); /* Animator */
-                animator.SetBool("run", false); /* Animator */
-                animator.SetBool("idle", true); /* Animator */
+                animator.SetBool("walk", false);
+                animator.SetBool("run", false); 
+                animator.SetBool("idle", true); 
                 animator.SetBool("idle", false);
             }
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
