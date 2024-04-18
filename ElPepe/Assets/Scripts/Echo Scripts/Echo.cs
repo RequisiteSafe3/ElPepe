@@ -15,7 +15,7 @@ public class Echo : MonoBehaviour
     public GameObject m;
     public GameObject Checkpoint;
 
-    private bool plantar = false;
+    private bool plantar = true;
     private float Posicion_X;
     private float Posicion_Y;
     void Start()
