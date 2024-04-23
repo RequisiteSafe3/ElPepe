@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: stoneTiles2_67
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1960290663, guid: e25988bc870f7cc48a11112de2fa1607, type: 3}
+  m_Sprite: {fileID: 970017672, guid: e25988bc870f7cc48a11112de2fa1607, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
