@@ -33,7 +33,7 @@ TagManager:
   - Water
   - UI
   - Gorund
-  - 
+  - frontGround
   - 
   - 
   - 
@@ -67,4 +67,13 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Mapa
+    uniqueID: 973479293
+    locked: 0
+  - name: Jugador
+    uniqueID: 121606999
+    locked: 0
+  - name: frontGround
+    uniqueID: 3606882895
     locked: 0
