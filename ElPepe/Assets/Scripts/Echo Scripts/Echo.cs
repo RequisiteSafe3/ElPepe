@@ -8,12 +8,12 @@ public class Echo : MonoBehaviour
     public bool Intangible = false;
     public bool Mascara = false;
     public Animator animator;
+    public Groundc GC;
 
     public GameObject Arbolito;
     public GameObject ible;
     public GameObject time;
     public GameObject m;
-    public GameObject Checkpoint;
 
     private bool plantar = false;
     private float Posicion_X;
@@ -40,11 +40,10 @@ public class Echo : MonoBehaviour
         }
 
         //Checkpoint
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded == true)
         {
             Posicion_X = transform.position.x;
             Posicion_Y = transform.position.y;
-            Instantiate(Checkpoint, new Vector3(transform.position.x, transform.position.y - 0.13f, -0.1f), Quaternion.identity);
         }
         if (Input.GetKeyDown(KeyCode.F))
         {

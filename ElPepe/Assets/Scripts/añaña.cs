@@ -4,41 +4,41 @@ using UnityEngine;
 
 public class añaña : MonoBehaviour
 {
-    Rigidbody2D rb2D;
-    public SpriteRenderer spriteR;
-    public float speed = 1.5f;
-    public static bool x = true;
+    [SerializeField] private float Velocidad;
+    [SerializeField] private Transform[] Puntos;
+    [SerializeField] private float Distancia;
+
+    private int SiguientePaso = 0;
+    private SpriteRenderer spriteR;
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+       spriteR = GetComponent<SpriteRenderer>();
+       Girar();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (x == true)
+        transform.position = Vector2.MoveTowards(transform.position, Puntos[SiguientePaso].position, Velocidad * Time.deltaTime);
+        if (Vector2.Distance(transform.position, Puntos[SiguientePaso].position) < Distancia)
         {
-            rb2D.velocity = new Vector2(-speed, 0); //derecha
-            spriteR.flipX = false;
+            SiguientePaso++;
+            if (SiguientePaso >= Puntos.Length)
+            {
+                SiguientePaso = 0;
+            }
+            Girar();
+        }
+    }
+    public void Girar()
+    {
+        if (transform.position.x < Puntos[SiguientePaso].position.x)
+        {
+            spriteR.flipX = true;
         }
         else
         {
-            rb2D.velocity = new Vector2(speed, 0); //derecha
-            spriteR.flipX = true;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Mover"))
-        {
-            if (x == true)
-            {
-                x = false;
-            }
-            else
-            {
-                x = true;
-            }
+            spriteR.flipX = false;
         }
     }
 }

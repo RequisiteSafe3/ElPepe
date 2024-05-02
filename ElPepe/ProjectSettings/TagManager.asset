@@ -10,13 +10,7 @@ TagManager:
   - E3
   - E4
   - euno
-  - Mover
   - Dead
-  - E5
-  - E6
-  - E7
-  - E8
-  - E5-
   - Fin
   - fin
   - humo
@@ -25,6 +19,8 @@ TagManager:
   - Charco
   - "A\xF1a"
   - Tapa
+  - Maquina
+  - Mover
   layers:
   - Default
   - TransparentFX

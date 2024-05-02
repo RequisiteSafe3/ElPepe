@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tp : MonoBehaviour
 {
+    public Groundc GC;
+    public Echo echo;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +15,9 @@ public class Tp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded == true)
         {
-            Destroy(gameObject);
+            transform.position = new Vector3(echo.transform.position.x, echo.transform.position.y - 0.533f, echo.transform.position.z);
         }
     }
 }
