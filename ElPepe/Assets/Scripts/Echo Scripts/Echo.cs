@@ -20,6 +20,10 @@ public class Echo : MonoBehaviour
     private bool plantar = false;
     private float Posicion_X;
     private float Posicion_Y;
+    private float Caida_y;
+    private float Caida_y_dos;
+    private bool Cayendo;
+    private bool Subiendo;
     void Start()
     {
     }
@@ -53,11 +57,16 @@ public class Echo : MonoBehaviour
         }
 
         //animaciones
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))){
-            animator.SetBool("idle", false);
+        if (rb2D.velocity.y > 0.1F)
+        {
             animator.SetBool("jump", true);
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
+            animator.SetBool("idle", false);
+            animator.SetBool("Fall", false);
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) && GC.isGrounded == true) {
+            animator.SetBool("jump", false);
             animator.SetBool("idle", false);
             animator.SetBool("run", true);
             if (Input.GetKey(KeyCode.W)) {
@@ -65,58 +74,33 @@ public class Echo : MonoBehaviour
                 animator.SetBool("walk", true);
             }
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
+        else if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)) {
             animator.SetBool("jump", false);
             animator.SetBool("walk", false);
             animator.SetBool("run", false);
             animator.SetBool("idle", true);
+            animator.SetBool("Fall", false);
+        }
+        else if (rb2D.velocity.y < -0.1F)
+        {
+            animator.SetBool("Fall", true);
+            animator.SetBool("jump", false);
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
+            animator.SetBool("idle", false);
         }
         else {
             animator.SetBool("jump", false);
             animator.SetBool("walk", false);
             animator.SetBool("run", false);
             animator.SetBool("idle", true);
-        } /*
-
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
-        { //Dont move when is pressing both keyes
-            animator.SetBool("idle", true);
-            animator.SetBool("run", false);
-            animator.SetBool("walk", false);
-            animator.SetBool("jump", false);
+            animator.SetBool("JumpTop", false);
+            animator.SetBool("Fall", false);
         }
-        else
-        {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
-            { // Running.
-                if (Input.GetKey(KeyCode.W))
-                { // Running.
-                    animator.SetBool("idle", false);
-                    animator.SetBool("walk", true); 
-                    animator.SetBool("run", false); 
-                    animator.SetBool("jump", false);
-                }
-                else
-                {
-                animator.SetBool("idle", false);
-                animator.SetBool("walk", false); 
-                animator.SetBool("run", true); 
-                animator.SetBool("idle", false);
-                }
-            }
-            else
-            { // Idle animation in case of not moving.
-                animator.SetBool("walk", false);
-                animator.SetBool("run", false); 
-                animator.SetBool("idle", true); 
-                animator.SetBool("idle", false);
-            }
-        }*/
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Dead") && Intangible == false)
+        if (collision.CompareTag("Dead") && Intangible == false && Mascara == false)
         {
             StartCoroutine("Muerte_");
         }
