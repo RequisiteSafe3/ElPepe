@@ -20,4 +20,8 @@ public class Tp : MonoBehaviour
             transform.position = new Vector3(echo.transform.position.x, echo.transform.position.y - 0.533f, echo.transform.position.z);
         }
     }
+     public void InstaTP()
+    {
+        transform.position = new Vector3(echo.transform.position.x, echo.transform.position.y - 0.533f, echo.transform.position.z);
+    }
 }

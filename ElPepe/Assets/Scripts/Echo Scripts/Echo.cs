@@ -9,11 +9,13 @@ public class Echo : MonoBehaviour
     public bool Mascara = false;
     public Animator animator;
     public Groundc GC;
+    public Tp tp;
 
     public GameObject Arbolito;
     public GameObject ible;
     public GameObject time;
     public GameObject m;
+    public Rigidbody2D rb2D;
 
     private bool plantar = false;
     private float Posicion_X;
@@ -116,7 +118,7 @@ public class Echo : MonoBehaviour
     {
         if (collision.CompareTag("Dead") && Intangible == false)
         {
-            Debug.Log("sE MUERES");
+            StartCoroutine("Muerte_");
         }
         else if (collision.CompareTag("masc"))
         {
@@ -125,7 +127,10 @@ public class Echo : MonoBehaviour
         }
         else if (collision.CompareTag("humo") && Intangible == false && Mascara == false)
         {
-            Debug.Log("sE MUERES");
+            transform.position = new Vector3(182.516f, -16.51f, transform.position.z);
+            Posicion_X = transform.position.x;
+            Posicion_Y = transform.position.y;
+            tp.InstaTP();
         }
         else if (collision.CompareTag("Finish"))
         {
@@ -149,6 +154,18 @@ public class Echo : MonoBehaviour
         ible.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(10);
         Masca();
+    }
+    IEnumerator Muerte_()
+    {
+        rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+        animator.SetBool("Muerte", true);
+        yield return new WaitForSecondsRealtime(.583f);
+        transform.position = new Vector3(Posicion_X, Posicion_Y, transform.position.z);
+        animator.SetBool("Muerte", false);
+        rb2D.constraints = RigidbodyConstraints2D.None;
+        rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb2D.rotation = 0;
+        transform.position = new Vector3(transform.position.x, transform.position.y + 0.02f, transform.position.z);
     }
     IEnumerator ani_()
     {
