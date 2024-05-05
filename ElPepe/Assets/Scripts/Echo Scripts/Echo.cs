@@ -57,7 +57,7 @@ public class Echo : MonoBehaviour
         }
 
         //animaciones
-        if (rb2D.velocity.y > 0.1F)
+        if (rb2D.velocity.y > 0.1f)
         {
             animator.SetBool("jump", true);
             animator.SetBool("walk", false);
@@ -65,7 +65,7 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", false);
             animator.SetBool("Fall", false);
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A) && GC.isGrounded == true) {
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
             animator.SetBool("jump", false);
             animator.SetBool("idle", false);
             animator.SetBool("run", true);
@@ -81,7 +81,7 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", true);
             animator.SetBool("Fall", false);
         }
-        else if (rb2D.velocity.y < -0.1F)
+        else if (rb2D.velocity.y < -0.1f)
         {
             animator.SetBool("Fall", true);
             animator.SetBool("jump", false);
@@ -97,6 +97,7 @@ public class Echo : MonoBehaviour
             animator.SetBool("JumpTop", false);
             animator.SetBool("Fall", false);
         }
+        Debug.Log(rb2D.velocity.y);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
