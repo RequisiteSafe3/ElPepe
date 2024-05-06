@@ -65,10 +65,12 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", false);
             animator.SetBool("Fall", false);
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
+        else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && rb2D.velocity.y == 0) {
             animator.SetBool("jump", false);
             animator.SetBool("idle", false);
             animator.SetBool("run", true);
+            animator.SetBool("walk", false);
+            animator.SetBool("Fall", false);
             if (Input.GetKey(KeyCode.W)) {
                 animator.SetBool("run", false);
                 animator.SetBool("walk", true);
