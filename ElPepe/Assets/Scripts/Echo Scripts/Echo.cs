@@ -46,7 +46,7 @@ public class Echo : MonoBehaviour
         }
 
         //Checkpoint
-        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded_ == true)
         {
             Posicion_X = transform.position.x;
             Posicion_Y = transform.position.y;
@@ -65,8 +65,16 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", false);
             animator.SetBool("Fall", false);
         }
+        else if (rb2D.velocity.y < -0.1f)
+        {
+            animator.SetBool("Fall", true);
+            animator.SetBool("jump", false);
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
+            animator.SetBool("idle", false);
+        }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
-            if (rb2D.velocity.y < 1 && rb2D.velocity.y > -1){
+            if (GC.isGrounded_){
                 animator.SetBool("jump", false);
                 animator.SetBool("idle", false);
                 animator.SetBool("run", true);
@@ -85,14 +93,6 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", true);
             animator.SetBool("Fall", false);
         }
-        else if (rb2D.velocity.y < -0.1f)
-        {
-            animator.SetBool("Fall", true);
-            animator.SetBool("jump", false);
-            animator.SetBool("walk", false);
-            animator.SetBool("run", false);
-            animator.SetBool("idle", false);
-        }
         else {
             animator.SetBool("jump", false);
             animator.SetBool("walk", false);
@@ -101,7 +101,6 @@ public class Echo : MonoBehaviour
             animator.SetBool("JumpTop", false);
             animator.SetBool("Fall", false);
         }
-        Debug.Log(rb2D.velocity.y);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -15,7 +15,7 @@ public class Tp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded_ == true)
         {
             transform.position = new Vector3(echo.transform.position.x, echo.transform.position.y - 0.533f, echo.transform.position.z);
         }
