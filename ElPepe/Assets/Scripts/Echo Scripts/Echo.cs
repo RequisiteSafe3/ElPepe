@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Echo : MonoBehaviour
 {
+    [SerializeField] int Semillas = 0;
+    [SerializeField] int Filtros = 0;
     public bool Intangible = false;
     public bool Mascara = false;
     public Animator animator;
@@ -20,10 +22,6 @@ public class Echo : MonoBehaviour
     private bool plantar = false;
     private float Posicion_X;
     private float Posicion_Y;
-    private float Caida_y;
-    private float Caida_y_dos;
-    private bool Cayendo;
-    private bool Subiendo;
     void Start()
     {
     }
@@ -40,9 +38,10 @@ public class Echo : MonoBehaviour
             Intangible = false;
         }
         //plantar
-        if (Input.GetKeyDown(KeyCode.E) && plantar == true)
+        if (Input.GetKeyDown(KeyCode.E) && plantar == true && Semillas > 0)
         {
-            Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y - 0.13f, -0.1f), Quaternion.identity);
+            Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y - 1.002f, -0.1f), Quaternion.identity);
+            Semillas--;
         }
 
         //Checkpoint
@@ -124,9 +123,17 @@ public class Echo : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        if (collision.CompareTag("arbol"))
+        else if (collision.CompareTag("arbol"))
         {
             plantar = true;
+        }
+        else if (collision.CompareTag("Semillas"))
+        {
+            Semillas = Semillas + 5;
+        }
+        else if (collision.CompareTag("Filtro"))
+        {
+            Filtros++;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

@@ -21,6 +21,8 @@ TagManager:
   - Tapa
   - Maquina
   - Mover
+  - Semillas
+  - Filtro
   layers:
   - Default
   - TransparentFX
