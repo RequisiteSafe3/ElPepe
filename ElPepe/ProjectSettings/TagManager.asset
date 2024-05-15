@@ -23,6 +23,8 @@ TagManager:
   - Mover
   - Semillas
   - Filtro
+  - Fertilizante
+  - ZONA_INFERTIL
   layers:
   - Default
   - TransparentFX

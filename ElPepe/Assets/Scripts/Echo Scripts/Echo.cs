@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Echo : MonoBehaviour
 {
-    [SerializeField] int Semillas = 0;
-    [SerializeField] int Filtros = 0;
+    public int Semillas = 0;
+    public int Filtros = 0;
+    public int Fertilizante = 0;
+    public Semilli semilli;
+    public Fertili fertili;
+
     public bool Intangible = false;
     public bool Mascara = false;
     public Animator animator;
@@ -20,9 +24,11 @@ public class Echo : MonoBehaviour
     public Rigidbody2D rb2D;
 
     private bool plantar = false;
+    private bool En_Zona_Infertil = false;
     private float Posicion_X;
     private float Posicion_Y;
     void Start()
+
     {
     }
 
@@ -38,10 +44,11 @@ public class Echo : MonoBehaviour
             Intangible = false;
         }
         //plantar
-        if (Input.GetKeyDown(KeyCode.E) && plantar == true && Semillas > 0)
+        if (Input.GetKeyDown(KeyCode.E) && plantar == true && Semillas > 0 && En_Zona_Infertil == false)
         {
             Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y - 1.002f, -0.1f), Quaternion.identity);
             Semillas--;
+            semilli.Actualizar();
         }
 
         //Checkpoint
@@ -123,6 +130,10 @@ public class Echo : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        else if (collision.CompareTag("ZONA_INFERTIL"))
+        {
+            En_Zona_Infertil = true;
+        }
         else if (collision.CompareTag("arbol"))
         {
             plantar = true;
@@ -130,10 +141,17 @@ public class Echo : MonoBehaviour
         else if (collision.CompareTag("Semillas"))
         {
             Semillas = Semillas + 5;
+            semilli.Actualizar();
         }
         else if (collision.CompareTag("Filtro"))
         {
             Filtros++;
+            //falta
+        }
+        else if (collision.CompareTag("Fertilizante"))
+        {
+            Fertilizante++;
+            fertili.Actualizar();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -142,6 +160,16 @@ public class Echo : MonoBehaviour
         {
             plantar = false;
         }
+        else if (collision.CompareTag("ZONA_INFERTIL"))
+        {
+            En_Zona_Infertil = false;
+        }
+    }
+    //Bajar contador de fertilizante
+    public void Bajar_Contador_De_Fertilizante()
+    {
+        Fertilizante--;
+        fertili.Actualizar();
     }
     IEnumerator Mascara_()
     {
