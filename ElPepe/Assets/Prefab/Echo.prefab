@@ -249,6 +249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4e49818f4776f49ac7ef5827459dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Semillas: 0
+  Filtros: 0
+  Fertilizante: 0
+  semilli: {fileID: 0}
+  fertili: {fileID: 0}
+  filtrilli: {fileID: 0}
   Intangible: 0
   Mascara: 0
   animator: {fileID: 5941776698463392917}
@@ -346,7 +352,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 431605fb0784d190000000007d1d063a57933f074faafcd6
+  m_ApplyToSortingLayers: 0784d190000000007d1d063a57933f074faafcd6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
