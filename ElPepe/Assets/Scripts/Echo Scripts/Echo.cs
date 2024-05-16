@@ -10,6 +10,7 @@ public class Echo : MonoBehaviour
     public int Fertilizante = 0;
     public Semilli semilli;
     public Fertili fertili;
+    public Filtrilli filtrilli;
 
     public bool Intangible = false;
     public bool Mascara = false;
@@ -146,7 +147,7 @@ public class Echo : MonoBehaviour
         else if (collision.CompareTag("Filtro"))
         {
             Filtros++;
-            //falta
+            filtrilli.Actualizar();
         }
         else if (collision.CompareTag("Fertilizante"))
         {
@@ -170,6 +171,12 @@ public class Echo : MonoBehaviour
     {
         Fertilizante--;
         fertili.Actualizar();
+    }
+    //Bajar contador de filtros
+    public void Bajar_Contador_De_Filtros()
+    {
+        Filtros--;
+        filtrilli.Actualizar();
     }
     IEnumerator Mascara_()
     {

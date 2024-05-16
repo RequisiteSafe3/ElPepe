@@ -25,6 +25,7 @@ TagManager:
   - Filtro
   - Fertilizante
   - ZONA_INFERTIL
+  - Poner_Filtro
   layers:
   - Default
   - TransparentFX
