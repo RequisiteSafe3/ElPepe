@@ -16,6 +16,7 @@ public class Echo : MonoBehaviour
     public bool Mascara = false;
     public Animator animator;
     public Groundc GC;
+    public pared pared;
     public Tp tp;
 
     public GameObject Arbolito;
@@ -71,6 +72,15 @@ public class Echo : MonoBehaviour
             animator.SetBool("run", false);
             animator.SetBool("idle", false);
             animator.SetBool("Fall", false);
+            animator.SetBool("pared", false);
+        }
+        else if (!GC.isGrounded_ && pared.isTouchingWall_) {
+            animator.SetBool("pared", true);
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
+            animator.SetBool("idle", false);
+            animator.SetBool("Fall", false);
+            animator.SetBool("jump", false);
         }
         else if (rb2D.velocity.y < -0.1f)
         {
@@ -81,16 +91,22 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", false);
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
-            if (GC.isGrounded_){
-                animator.SetBool("jump", false);
-                animator.SetBool("idle", false);
-                animator.SetBool("run", true);
-                animator.SetBool("walk", false);
-                animator.SetBool("Fall", false);
-                if (Input.GetKey(KeyCode.W)) {
-                    animator.SetBool("run", false);
-                    animator.SetBool("walk", true);
+            if (rb2D.velocity.x != 0) {
+                if (GC.isGrounded_){
+                    animator.SetBool("jump", false);
+                    animator.SetBool("idle", false);
+                    animator.SetBool("run", true);
+                    animator.SetBool("walk", false);
+                    animator.SetBool("Fall", false);
+                    if (Input.GetKey(KeyCode.W)) {
+                        animator.SetBool("run", false);
+                        animator.SetBool("walk", true);
+                    }
                 }
+            }
+            else {
+                animator.SetBool("run", false);
+                animator.SetBool("idle", true);
             }
         }
         else if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)) {
@@ -99,6 +115,7 @@ public class Echo : MonoBehaviour
             animator.SetBool("run", false);
             animator.SetBool("idle", true);
             animator.SetBool("Fall", false);
+            animator.SetBool("pared", false);
         }
         else {
             animator.SetBool("jump", false);
@@ -107,7 +124,10 @@ public class Echo : MonoBehaviour
             animator.SetBool("idle", true);
             animator.SetBool("JumpTop", false);
             animator.SetBool("Fall", false);
+            animator.SetBool("pared", false);
         }
+        if (!pared.isTouchingWall_) animator.SetBool("pared", false);
+        else if (pared.isTouchingWall_ && GC.isGrounded_) animator.SetBool("pared", false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
