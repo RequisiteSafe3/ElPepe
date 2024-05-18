@@ -25,6 +25,9 @@ public class Echo : MonoBehaviour
     public GameObject Arbolito;
     public GameObject time;
     public Rigidbody2D rb2D;
+    public GameObject Animación_Fertilizante;
+    public GameObject Animación_Semillas;
+    public GameObject Animación_Filtro;
 
     private bool plantar = false;
     private bool En_Zona_Infertil = false;
@@ -169,16 +172,19 @@ public class Echo : MonoBehaviour
         else if (collision.CompareTag("Semillas"))
         {
             Semillas = Semillas + 2.5f;
+            StartCoroutine("Semillas_Anim_");
             semilli.Actualizar();
         }
         else if (collision.CompareTag("Filtro"))
         {
             Filtros = Filtros + .5f;
+            StartCoroutine("Filtro_Anim_");
             filtrilli.Actualizar();
         }
         else if (collision.CompareTag("Fertilizante"))
         {
             Fertilizante = Fertilizante + .5f;
+            StartCoroutine("Fertilizante_Anim_");
             fertili.Actualizar();
         }
     }
@@ -192,6 +198,25 @@ public class Echo : MonoBehaviour
         {
             En_Zona_Infertil = false;
         }
+    }
+    //Animaciones de item
+    IEnumerator Fertilizante_Anim_()
+    {
+        Animación_Fertilizante.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.25f);
+        Animación_Fertilizante.gameObject.SetActive(false);
+    }
+    IEnumerator Semillas_Anim_()
+    {
+        Animación_Semillas.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.25f);
+        Animación_Semillas.gameObject.SetActive(false);
+    }
+    IEnumerator Filtro_Anim_()
+    {
+        Animación_Filtro.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.25f);
+        Animación_Filtro.gameObject.SetActive(false);
     }
     //Bajar contador de fertilizante
     public void Bajar_Contador_De_Fertilizante()
