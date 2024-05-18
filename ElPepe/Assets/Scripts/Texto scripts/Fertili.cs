@@ -7,7 +7,7 @@ public class Fertili : MonoBehaviour
 {
     public TextMeshProUGUI Fertilizante_Texto;
     public Echo echo;
-    private int Aux;
+    private float Aux;
     void Start()
     {
         Fertilizante_Texto = GetComponent<TextMeshProUGUI>();

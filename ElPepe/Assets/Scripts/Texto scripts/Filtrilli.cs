@@ -7,7 +7,7 @@ public class Filtrilli : MonoBehaviour
 {
     public TextMeshProUGUI Filtros_Texto;
     public Echo echo;
-    private int Aux;
+    private float Aux;
     void Start()
     {
         Filtros_Texto = GetComponent<TextMeshProUGUI>();

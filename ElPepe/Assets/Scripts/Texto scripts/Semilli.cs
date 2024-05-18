@@ -7,7 +7,7 @@ public class Semilli : MonoBehaviour
 {
     public TextMeshProUGUI Semillas_Texto;
     public Echo echo;
-    private int Aux;
+    private float Aux;
     void Start()
     {
         Semillas_Texto = GetComponent<TextMeshProUGUI>();

@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Echo : MonoBehaviour
 {
-    public int Semillas = 0;
-    public int Filtros = 0;
-    public int Fertilizante = 0;
+    public float Semillas = 0;
+    public float Filtros = 0;
+    public float Fertilizante = 0;
     public Semilli semilli;
     public Fertili fertili;
     public Filtrilli filtrilli;
+    public N_CheckPoints CH;
+    public bool Desactivar_Bolita_de_Plantar = false;
+    public float Checkpoints = 3;
 
     public bool Intangible = false;
     public bool Mascara = false;
@@ -20,9 +23,7 @@ public class Echo : MonoBehaviour
     public Tp tp;
 
     public GameObject Arbolito;
-    public GameObject ible;
     public GameObject time;
-    public GameObject m;
     public Rigidbody2D rb2D;
 
     private bool plantar = false;
@@ -32,6 +33,7 @@ public class Echo : MonoBehaviour
     void Start()
 
     {
+        Debug.Log(Semillas);
     }
 
     // Update is called once per frame
@@ -51,15 +53,20 @@ public class Echo : MonoBehaviour
             Instantiate(Arbolito, new Vector3(transform.position.x, transform.position.y - 1.002f, -0.1f), Quaternion.identity);
             Semillas--;
             semilli.Actualizar();
+            Checkpoints++;
+            CH.Actualizar();
+            StartCoroutine("Contador_de_Plantar_");
         }
 
         //Checkpoint
-        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded_ == true)
+        if (Input.GetKeyDown(KeyCode.Q) && GC.isGrounded_ == true && Checkpoints > 0)
         {
             Posicion_X = transform.position.x;
             Posicion_Y = transform.position.y;
+            Checkpoints--;
+            CH.Actualizar();
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && GC.isGrounded_ == true)
         {
             transform.position = new Vector3(Posicion_X, Posicion_Y, transform.position.z);
         }
@@ -161,17 +168,17 @@ public class Echo : MonoBehaviour
         }
         else if (collision.CompareTag("Semillas"))
         {
-            Semillas = Semillas + 5;
+            Semillas = Semillas + 2.5f;
             semilli.Actualizar();
         }
         else if (collision.CompareTag("Filtro"))
         {
-            Filtros++;
+            Filtros = Filtros + .5f;
             filtrilli.Actualizar();
         }
         else if (collision.CompareTag("Fertilizante"))
         {
-            Fertilizante++;
+            Fertilizante = Fertilizante + .5f;
             fertili.Actualizar();
         }
     }
@@ -191,19 +198,28 @@ public class Echo : MonoBehaviour
     {
         Fertilizante--;
         fertili.Actualizar();
+        Checkpoints++;
+        CH.Actualizar();
     }
     //Bajar contador de filtros
     public void Bajar_Contador_De_Filtros()
     {
         Filtros--;
         filtrilli.Actualizar();
+        Checkpoints++;
+        CH.Actualizar();
     }
     IEnumerator Mascara_()
     {
         Mascara = true;
-        ible.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(10);
         Masca();
+    }
+    IEnumerator Contador_de_Plantar_()
+    {
+        Desactivar_Bolita_de_Plantar = true;
+        yield return new WaitForSecondsRealtime(1);
+        Desactivar_Bolita_de_Plantar = false;
     }
     IEnumerator Muerte_()
     {
@@ -225,7 +241,6 @@ public class Echo : MonoBehaviour
     }
     private void Masca()
     {
-        ible.gameObject.SetActive(false);
         Mascara = false;
     }
 }
