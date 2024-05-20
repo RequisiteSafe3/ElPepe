@@ -26,6 +26,7 @@ TagManager:
   - Fertilizante
   - ZONA_INFERTIL
   - Poner_Filtro
+  - Stats
   layers:
   - Default
   - TransparentFX
@@ -77,4 +78,7 @@ TagManager:
     locked: 0
   - name: frontGround
     uniqueID: 3606882895
+    locked: 0
+  - name: HastaSuPutaMadreDeAdelante
+    uniqueID: 2845026893
     locked: 0

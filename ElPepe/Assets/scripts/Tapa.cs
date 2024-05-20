@@ -19,6 +19,7 @@ public class Tapa : MonoBehaviour
     public ParticleSystem lluvia5;
     public ParticleSystem lluvia6;
     public GameObject lluvia;
+    public Echo echo;
     void Update()
     {
         if (pene == true)
@@ -46,6 +47,7 @@ public class Tapa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            echo.Aire_Reparado++;
             Tapa_Cerrada.gameObject.SetActive(true);
             Tapa_Abierta.gameObject.SetActive(false);
             lluvia.gameObject.SetActive(false);

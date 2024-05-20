@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: 0.0031433105, y: -0.0071792603, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5316583645548506652}
   m_Father: {fileID: 1433842002904444492}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -458,11 +459,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3913120503129815754}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5119934, y: -0.4300003, z: -3.3179336}
+  m_LocalPosition: {x: -1.5151367, y: -0.42282104, z: -3.3179336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1433842002904444492}
+  m_Father: {fileID: 162103800877018407}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1365646562464814396
@@ -522,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34257060c336124eab866bff22afdf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  echo: {fileID: 0}
   Taladro: {fileID: 619096999413633766}
   Luces: {fileID: 4821566365152897542}
   Luz: {fileID: 1907298720792365170}
@@ -660,12 +662,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5316583645548506652}
   - {fileID: 162103800877018407}
   - {fileID: 2251799990536633800}
   - {fileID: 4411169852011168555}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9040012055981593247
 SpriteRenderer:

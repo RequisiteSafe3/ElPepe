@@ -6,6 +6,7 @@ public class Desactivar_Grid : MonoBehaviour
 {
     public GameObject Grid;
     public Echo echo;
+    public GameObject Particulas;
     private bool Puede_Borrar = false;
     private void Update()
     {
@@ -13,6 +14,7 @@ public class Desactivar_Grid : MonoBehaviour
         {
             echo.Bajar_Contador_De_Fertilizante();
             Grid.gameObject.SetActive(false);
+            StartCoroutine("Particulas_");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,5 +30,11 @@ public class Desactivar_Grid : MonoBehaviour
         {
             Puede_Borrar = false;
         }
+    }
+    IEnumerator Particulas_()
+    {
+        Particulas.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(3);
+        Particulas.gameObject.SetActive(false);
     }
 }

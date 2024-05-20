@@ -33,10 +33,15 @@ public class Echo : MonoBehaviour
     private bool En_Zona_Infertil = false;
     private float Posicion_X;
     private float Posicion_Y;
+
+    public int Filtros_Reparados = 0;
+    public int Aire_Reparado = 0;
+    public int Semillas_Plantadas = 0;
+    public int Maquinaria_Apagada = 0;
+    public int Suelo_Fertilizado = 0;
     void Start()
 
     {
-        Debug.Log(Semillas);
     }
 
     // Update is called once per frame
@@ -59,6 +64,7 @@ public class Echo : MonoBehaviour
             Checkpoints++;
             CH.Actualizar();
             StartCoroutine("Contador_de_Plantar_");
+            Semillas_Plantadas++;
         }
 
         //Checkpoint
@@ -225,6 +231,7 @@ public class Echo : MonoBehaviour
         fertili.Actualizar();
         Checkpoints++;
         CH.Actualizar();
+        Suelo_Fertilizado++;
     }
     //Bajar contador de filtros
     public void Bajar_Contador_De_Filtros()
@@ -233,6 +240,7 @@ public class Echo : MonoBehaviour
         filtrilli.Actualizar();
         Checkpoints++;
         CH.Actualizar();
+        Filtros_Reparados++;
     }
     IEnumerator Mascara_()
     {

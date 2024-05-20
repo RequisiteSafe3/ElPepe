@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Desactivador : MonoBehaviour
 {
+    public Echo echo;
     private bool Desactivar = false;
     public GameObject Taladro;
     public GameObject Luces;
@@ -13,6 +14,7 @@ public class Desactivador : MonoBehaviour
     {
         if (Desactivar == true && Input.GetKey(KeyCode.E))
         {
+            echo.Maquinaria_Apagada++;
             Luces.gameObject.SetActive(false);
             Taladro.gameObject.SetActive(false);
             Luz.gameObject.SetActive(false);
