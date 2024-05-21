@@ -28,6 +28,7 @@ public class Echo : MonoBehaviour
     public GameObject Animación_Fertilizante;
     public GameObject Animación_Semillas;
     public GameObject Animación_Filtro;
+    public GameObject Particulas;
 
     private bool plantar = false;
     private bool En_Zona_Infertil = false;
@@ -232,6 +233,7 @@ public class Echo : MonoBehaviour
         Checkpoints++;
         CH.Actualizar();
         Suelo_Fertilizado++;
+        Instantiate(Particulas, new Vector3(transform.position.x, transform.position.y, -0.1f), Quaternion.identity);
     }
     //Bajar contador de filtros
     public void Bajar_Contador_De_Filtros()
@@ -241,6 +243,7 @@ public class Echo : MonoBehaviour
         Checkpoints++;
         CH.Actualizar();
         Filtros_Reparados++;
+        Instantiate(Particulas, new Vector3(transform.position.x, transform.position.y, -0.1f), Quaternion.identity);
     }
     IEnumerator Mascara_()
     {
