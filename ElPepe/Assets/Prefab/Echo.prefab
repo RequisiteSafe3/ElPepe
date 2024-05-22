@@ -71,7 +71,7 @@ Transform:
   - {fileID: 1768764276579348026}
   - {fileID: 2911288773778907984}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3655157121920230944
 SpriteRenderer:
@@ -272,6 +272,12 @@ MonoBehaviour:
   "Animaci\xF3n_Fertilizante": {fileID: 7474824149614744549}
   "Animaci\xF3n_Semillas": {fileID: 4452319152324682747}
   "Animaci\xF3n_Filtro": {fileID: 7059902288401536325}
+  Particulas: {fileID: 0}
+  Filtros_Reparados: 0
+  Aire_Reparado: 0
+  Semillas_Plantadas: 0
+  Maquinaria_Apagada: 0
+  Suelo_Fertilizado: 0
 --- !u!1 &2050314075219427372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1036,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34200668, y: 0.07055664}
+  m_Size: {x: 0.34200668, y: 0.43}
   m_EdgeRadius: 0
 --- !u!1 &7059902288401536325
 GameObject:

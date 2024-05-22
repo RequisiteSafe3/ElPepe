@@ -5,6 +5,7 @@ using UnityEngine;
 public class Desactivar_Grid : MonoBehaviour
 {
     public GameObject Grid;
+    public GameObject Plantar;
     public Echo echo;
     private bool Puede_Borrar = false;
     private void Update()
@@ -13,6 +14,7 @@ public class Desactivar_Grid : MonoBehaviour
         {
             echo.Bajar_Contador_De_Fertilizante();
             Grid.gameObject.SetActive(false);
+            Plantar.gameObject.SetActive(true);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

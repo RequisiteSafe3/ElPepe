@@ -339,11 +339,11 @@ public class PlayerMovement : MonoBehaviour
         float targetSpeed;
         if (Input.GetKey(KeyCode.W))
         {
-            targetSpeed = _moveInput.x * Data.runMaxSpeed * Data.WalkingMultiplier;
+            targetSpeed = _moveInput.x * Data.runAccelAmount;
         }
         else
         {
-            targetSpeed = _moveInput.x * Data.runAccelAmount;
+            targetSpeed = _moveInput.x * Data.runMaxSpeed * Data.WalkingMultiplier;
         }
         //We can reduce are control using Lerp() this smooths changes to are direction and speed
         targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);

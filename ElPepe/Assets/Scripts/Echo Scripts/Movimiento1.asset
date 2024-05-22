@@ -22,8 +22,8 @@ MonoBehaviour:
   WalkingMultiplier: 0.7
   runAcceleration: 5
   runAccelAmount: 19.23077
-  runDecceleration: 3.17
-  runDeccelAmount: 12.192308
+  runDecceleration: 5.27
+  runDeccelAmount: 20.26923
   accelInAir: 0.4
   deccelInAir: 0.15
   doConserveMomentum: 0

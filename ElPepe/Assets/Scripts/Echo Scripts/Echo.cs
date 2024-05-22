@@ -13,7 +13,7 @@ public class Echo : MonoBehaviour
     public Filtrilli filtrilli;
     public N_CheckPoints CH;
     public bool Desactivar_Bolita_de_Plantar = false;
-    public float Checkpoints = 3;
+    public int Checkpoints = 3;
 
     public bool Intangible = false;
     public bool Mascara = false;
@@ -75,6 +75,7 @@ public class Echo : MonoBehaviour
             Posicion_Y = transform.position.y;
             Checkpoints--;
             CH.Actualizar();
+            tp.actualizas_bandera();
         }
         if (Input.GetKeyDown(KeyCode.F) && GC.isGrounded_ == true)
         {
@@ -82,7 +83,7 @@ public class Echo : MonoBehaviour
         }
 
         //animaciones
-        if (rb2D.velocity.y > 0.1f)
+        if (rb2D.velocity.y > 0.1f && !GC.isGrounded_)
         {
             animator.SetBool("jump", true);
             animator.SetBool("walk", false);
@@ -99,7 +100,7 @@ public class Echo : MonoBehaviour
             animator.SetBool("Fall", false);
             animator.SetBool("jump", false);
         }
-        else if (rb2D.velocity.y < -0.1f)
+        else if (rb2D.velocity.y < -0.1f && !GC.isGrounded_)
         {
             animator.SetBool("Fall", true);
             animator.SetBool("jump", false);
@@ -109,13 +110,28 @@ public class Echo : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) {
             if (rb2D.velocity.x != 0) {
-                if (GC.isGrounded_){
+                if (GC.isGrounded_)
+                {
+                    animator.SetBool("jump", false);
+                    animator.SetBool("idle", false);
+                    animator.SetBool("run", false);
+                    animator.SetBool("walk", true);
+                    animator.SetBool("Fall", false);
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        animator.SetBool("run", true);
+                        animator.SetBool("walk", false);
+                    }
+                }
+                else if (GC.isGrounded_ && rb2D.velocity.x != 0)
+                {
                     animator.SetBool("jump", false);
                     animator.SetBool("idle", false);
                     animator.SetBool("run", true);
                     animator.SetBool("walk", false);
                     animator.SetBool("Fall", false);
-                    if (Input.GetKey(KeyCode.W)) {
+                    if (Input.GetKey(KeyCode.W))
+                    {
                         animator.SetBool("run", false);
                         animator.SetBool("walk", true);
                     }

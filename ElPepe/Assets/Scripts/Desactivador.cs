@@ -10,6 +10,7 @@ public class Desactivador : MonoBehaviour
     public GameObject Taladro;
     public GameObject Luces;
     public GameObject Luz;
+    public GameObject Particulas;
     void Update()
     {
         if (Desactivar == true && Input.GetKey(KeyCode.E))
@@ -18,6 +19,7 @@ public class Desactivador : MonoBehaviour
             Luces.gameObject.SetActive(false);
             Taladro.gameObject.SetActive(false);
             Luz.gameObject.SetActive(false);
+            Instantiate(Particulas, new Vector3(transform.position.x, transform.position.y, -0.1f), Quaternion.identity);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision) {
